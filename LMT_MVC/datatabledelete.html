@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        function createTable(data) {
+            var oTable = $('#example').dataTable({
+                bProcessing: true,
+                aaData: data,
+                aoColumns: [
+                    { mData: "t", sTitle: "t" },
+                    { mData: "d", sTitle: "d" },
+                    {
+                        mData: null, bSortable: false, sTitle: 'Actions', fnRender: function (oObj) {
+                            id = oObj.aData["t"];
+                            return "<a onclick='alert(&#39;" + id + "&#39;)' href='#'>delete</a>";
+                        }
+                    }
+                ]
+            });
+        }
+        $(function () {
+            $.ajax({
+                type: "GET",
+                url: '/api/test',
+                success: function (data) {
+                    createTable(data);
+                }
+            });
+        });
+    </script>
+    <table id="example"></table>
+</body>
+</html>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="LMT_MVC.Properties.Settings.CS-Web.config Connection String" description="LMT_MVC.Properties.Settings.CS Connection String used in web.config by the application to access the database." defaultValue="Data Source=d97laugvwr.database.windows.net,1433;Initial Catalog=dml_internal_db;Persist Security Info=True;User ID=dml1@d97laugvwr;Password=1q2w3e4R" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\dml2\\Documents\\Visual\ Studio\ 2013\\Projects\\LMT_MVC\\LMT_MVC\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LMT_MVC.Properties.Settings.CS']/@connectionString" />
+  </parameter>
+</parameters>

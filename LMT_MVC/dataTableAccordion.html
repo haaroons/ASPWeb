@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <link href="http:/cdn.datatables.net/1.10.0/css/jquery.dataTables.css" rel="stylesheet" />
+    <script src="http:/ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http:/cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
+    <style>
+        .group-back {
+            background-color: gray;
+            color: white;
+        }
+
+            .group-back:hover {
+                cursor: pointer;
+            }
+    </style>
+    <script>
+        var data = [{ "pk_leave_allowance_id": 1, "user_firstname": "Bo", "allowance_year": "2013", "leave_type": "Medical", "allowance_entitlement": 14, "allowance_taken": 0.0 }, { "pk_leave_allowance_id": 2, "user_firstname": "Eddy", "allowance_year": "2013", "leave_type": "Medical", "allowance_entitlement": 14, "allowance_taken": 2.5 }, { "pk_leave_allowance_id": 3, "user_firstname": "Eileen", "allowance_year": "2013", "leave_type": "Medical", "allowance_entitlement": 14, "allowance_taken": 0.0 }, { "pk_leave_allowance_id": 4, "user_firstname": "Justin", "allowance_year": "2013", "leave_type": "Medical", "allowance_entitlement": 14, "allowance_taken": 1.0 }, { "pk_leave_allowance_id": 5, "user_firstname": "Kristine", "allowance_year": "2013", "leave_type": "Medical", "allowance_entitlement": 14, "allowance_taken": 4.0 }, { "pk_leave_allowance_id": 6, "user_firstname": "Paula", "allowance_year": "2013", "leave_type": "Medical", "allowance_entitlement": 14, "allowance_taken": 39.0 }, { "pk_leave_allowance_id": 7, "user_firstname": "Yoann", "allowance_year": "2013", "leave_type": "Medical", "allowance_entitlement": 14, "allowance_taken": 2.0 }, { "pk_leave_allowance_id": 8, "user_firstname": "Andre", "allowance_year": "2013", "leave_type": "Casual-1", "allowance_entitlement": 6, "allowance_taken": 12.0 }, { "pk_leave_allowance_id": 9, "user_firstname": "Bo", "allowance_year": "2013", "leave_type": "Casual-1", "allowance_entitlement": 12, "allowance_taken": 7.0 }, { "pk_leave_allowance_id": 10, "user_firstname": "Eddy", "allowance_year": "2013", "leave_type": "Casual-1", "allowance_entitlement": 12, "allowance_taken": 10.0 }, { "pk_leave_allowance_id": 11, "user_firstname": "Eileen", "allowance_year": "2013", "leave_type": "Casual-1", "allowance_entitlement": 14, "allowance_taken": 8.0 }, { "pk_leave_allowance_id": 12, "user_firstname": "Justin", "allowance_year": "2013", "leave_type": "Casual-1", "allowance_entitlement": 12, "allowance_taken": 15.0 }, { "pk_leave_allowance_id": 13, "user_firstname": "Yoann", "allowance_year": "2013", "leave_type": "Casual-1", "allowance_entitlement": 12, "allowance_taken": 15.0 }, { "pk_leave_allowance_id": 14, "user_firstname": "Kristine", "allowance_year": "2013", "leave_type": "Casual-1", "allowance_entitlement": 13, "allowance_taken": 21.0 }, { "pk_leave_allowance_id": 15, "user_firstname": "Paula", "allowance_year": "2013", "leave_type": "Casual-1", "allowance_entitlement": 13, "allowance_taken": 11.5 }, { "pk_leave_allowance_id": 16, "user_firstname": "Tobias", "allowance_year": "2013", "leave_type": "Medical", "allowance_entitlement": 6, "allowance_taken": 2.0 }, { "pk_leave_allowance_id": 17, "user_firstname": "Tobias", "allowance_year": "2013", "leave_type": "Casual-1", "allowance_entitlement": 16, "allowance_taken": 9.5 }, { "pk_leave_allowance_id": 18, "user_firstname": "Isha", "allowance_year": "2013", "leave_type": "Casual-1", "allowance_entitlement": 15, "allowance_taken": 19.5 }, { "pk_leave_allowance_id": 19, "user_firstname": "Arjun", "allowance_year": "2013", "leave_type": "Casual-1", "allowance_entitlement": 16, "allowance_taken": 14.0 }, { "pk_leave_allowance_id": 20, "user_firstname": "Shawn", "allowance_year": "2013", "leave_type": "Casual-1", "allowance_entitlement": 14, "allowance_taken": 3.0 }, { "pk_leave_allowance_id": 21, "user_firstname": "Shawn", "allowance_year": "2013", "leave_type": "Medical", "allowance_entitlement": 14, "allowance_taken": 9.0 }, { "pk_leave_allowance_id": 22, "user_firstname": "Li Ling", "allowance_year": "2013", "leave_type": "Casual-1", "allowance_entitlement": 14, "allowance_taken": 11.5 }, { "pk_leave_allowance_id": 23, "user_firstname": "Li Ling", "allowance_year": "2013", "leave_type": "Medical", "allowance_entitlement": 14, "allowance_taken": 10.0 }, { "pk_leave_allowance_id": 24, "user_firstname": "Lawrence", "allowance_year": "2013", "leave_type": "Casual-1", "allowance_entitlement": 15, "allowance_taken": 2.5 }, { "pk_leave_allowance_id": 25, "user_firstname": "Lawrence", "allowance_year": "2013", "leave_type": "Adjustment", "allowance_entitlement": 1, "allowance_taken": 0.5 }];
+        $(function () {
+            var oTable = $('#LeaveAllowanceTable').dataTable({
+                "bProcessing": true,
+                "aaData": data,
+                "aaSorting": [[1, "asc"]],
+                "bDestroy": true,
+                "aoColumns": [
+                    { "mData": "pk_leave_allowance_id" },
+                    { "mData": "user_firstname" },
+                    { "mData": "allowance_year" },
+                    { "mData": "leave_type" },
+                    { "mData": "allowance_entitlement" },
+                    { "mData": "allowance_taken" }
+
+                ],
+                "fnDrawCallback": function (oSettings) {
+                    if (oSettings.aiDisplay.length == 0) {
+                        return;
+                    }
+                    var nTrs = $('#LeaveAllowanceTable tbody tr');
+                    var iColspan = nTrs[0].getElementsByTagName('td').length;
+                    var sLastGroup = "";
+                    for (var i = 0 ; i < nTrs.length ; i++) {
+
+                        var iDisplayIndex = oSettings._iDisplayStart + i;
+
+                        var sGroup = oSettings.aoData[oSettings.aiDisplay[iDisplayIndex]]._aData.user_firstname;
+                        if (sGroup != sLastGroup) {
+                            var nGroup = document.createElement('tr');
+                            var nCell = document.createElement('td');
+                            nCell.colSpan = iColspan;
+                            nCell.className = "group-back";
+                            nCell.innerHTML = sGroup;
+                            nGroup.appendChild(nCell);
+                            nTrs[i].parentNode.insertBefore(nGroup, nTrs[i]);
+                            sLastGroup = sGroup;
+                        }
+                    }
+                    $(".group-back").parent().addClass("accordion");
+
+                    $("#LeaveAllowanceTable tr:not(.accordion)").hide();
+                    $("#LeaveAllowanceTable tbody tr:not(.accordion)").hide();
+                    $("#LeaveAllowanceTable tr.accordion").click(function () {
+                        $("#LeaveAllowanceTable tbody tr:not(.accordion)").hide();
+                        $(this).nextUntil(".accordion").toggle();
+                        //$(this).nextUntil(".accordion").css({ "color": "red", "border": "2px solid red" });
+                    });
+                }
+
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <table id="LeaveAllowanceTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Person</th>
+                <th>Year</th>
+                <th>Leave Type</th>
+                <th>Leave Entitlemnt</th>
+                <th>Leave taken</th>
+
+            </tr>
+        </thead>
+    </table>
+</body>
+</html>

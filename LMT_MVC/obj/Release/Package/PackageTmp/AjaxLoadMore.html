@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
+<body>
+    <input id="itemcount" type="hidden" value="1" />
+    <div id="container">
+        some stuff
+    </div>
+    <div>
+        <input type="button" name="name" onclick="ajaXLoadMethod()" value="load more" />
+    </div>
+    <script>
+        function ajaXLoadMethod() {
+            var current_count = $('#itemcount').val();
+            current_count = parseInt(current_count) + 5;
+            $('#itemcount').val(current_count);
+            $('#container').html("I'm loading " + current_count + " records this time");
+        }
+    </script>
+</body>
+</html>

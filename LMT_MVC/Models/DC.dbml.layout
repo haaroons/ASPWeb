@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DC">
+  <DataContextMoniker Name="/DCDataContext" />
+  <nestedChildShapes>
+    <classShape Id="ce0b4611-3301-4ff7-a162-6519a6fecdd0" absoluteBounds="6.75, 0.75, 3.5, 1.3862939453125003">
+      <DataClassMoniker Name="/DCDataContext/Leave_Management_Approval_Matrix" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b40e6092-99fa-4247-8272-801f9cfe7221" absoluteBounds="6.765, 1.21, 3.4699999999999998, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="16c87504-fcbf-4f1e-879c-ea5bf1bbe388" absoluteBounds="0.75, 3, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DCDataContext/Leave_Management_Leave_Type" />
+      <nestedChildShapes>
+        <elementListCompartment Id="de107e5c-05b3-4e77-a0d7-ea3f615deca7" absoluteBounds="0.765, 3.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6eda4947-0ee3-465d-ba9b-ee487efd7407" absoluteBounds="3.5, 1.125, 2, 1.9631982421875003">
+      <DataClassMoniker Name="/DCDataContext/Leave_Management_Leave_Allowance" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b77d48ee-fc06-4cd8-89f3-8c97dbf57753" absoluteBounds="3.515, 1.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="94a57cc3-29a1-4c67-89e7-fe9561697925" absoluteBounds="3.5, 3.75, 2, 2.347801106770834">
+      <DataClassMoniker Name="/DCDataContext/Leave_Management_Leave_Taken" />
+      <nestedChildShapes>
+        <elementListCompartment Id="740fa3a7-edc4-4057-b0d1-09f84349e260" absoluteBounds="3.515, 4.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.75 : 3); (1.75 : 2.0624995); (3.5 : 2.0624995)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DCDataContext/Leave_Management_Leave_Type/Leave_Management_Leave_Type_Leave_Management_Leave_Allowance" />
+      <nodes>
+        <classShapeMoniker Id="16c87504-fcbf-4f1e-879c-ea5bf1bbe388" />
+        <classShapeMoniker Id="6eda4947-0ee3-465d-ba9b-ee487efd7407" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.97199625651042); (3.5 : 3.97199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DCDataContext/Leave_Management_Leave_Type/Leave_Management_Leave_Type_Leave_Management_Leave_Taken" />
+      <nodes>
+        <classShapeMoniker Id="16c87504-fcbf-4f1e-879c-ea5bf1bbe388" />
+        <classShapeMoniker Id="94a57cc3-29a1-4c67-89e7-fe9561697925" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="4be3a65f-2f04-47e0-913f-18c424d38c1c" absoluteBounds="6.75, 2.875, 2.875, 3.1170068359374996">
+      <DataClassMoniker Name="/DCDataContext/Innovation_Management_User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="35ca8812-3749-403b-adec-e14a3e3e217b" absoluteBounds="6.765, 3.335, 2.8449999999999998, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.59521484375 : 2.875); (7.59521484375 : 2.1362939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DCDataContext/Innovation_Management_User/Innovation_Management_User_Leave_Management_Approval_Matrix" />
+      <nodes>
+        <classShapeMoniker Id="4be3a65f-2f04-47e0-913f-18c424d38c1c" />
+        <classShapeMoniker Id="ce0b4611-3301-4ff7-a162-6519a6fecdd0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.672607421875 : 2.875); (8.672607421875 : 2.1362939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DCDataContext/Innovation_Management_User/Innovation_Management_User_Leave_Management_Approval_Matrix1" />
+      <nodes>
+        <classShapeMoniker Id="4be3a65f-2f04-47e0-913f-18c424d38c1c" />
+        <classShapeMoniker Id="ce0b4611-3301-4ff7-a162-6519a6fecdd0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.75 : 2.875); (6.375 : 2.5); (5.875 : 2.5); (5.875 : 3.4631982421875); (5.5 : 3.0881982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DCDataContext/Innovation_Management_User/Innovation_Management_User_Leave_Management_Leave_Allowance" />
+      <nodes>
+        <classShapeMoniker Id="4be3a65f-2f04-47e0-913f-18c424d38c1c" />
+        <classShapeMoniker Id="6eda4947-0ee3-465d-ba9b-ee487efd7407" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.75 : 5.3111035181438); (5.5 : 5.3111035181438)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DCDataContext/Innovation_Management_User/Innovation_Management_User_Leave_Management_Leave_Taken" />
+      <nodes>
+        <classShapeMoniker Id="4be3a65f-2f04-47e0-913f-18c424d38c1c" />
+        <classShapeMoniker Id="94a57cc3-29a1-4c67-89e7-fe9561697925" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.75 : 4.4680517590719); (5.5 : 4.4680517590719)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DCDataContext/Innovation_Management_User/Innovation_Management_User_Leave_Management_Leave_Taken1" />
+      <nodes>
+        <classShapeMoniker Id="4be3a65f-2f04-47e0-913f-18c424d38c1c" />
+        <classShapeMoniker Id="94a57cc3-29a1-4c67-89e7-fe9561697925" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

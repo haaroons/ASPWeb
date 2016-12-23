@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dml_internal_db" Class="DCDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\v11.0;Initial Catalog=db_lms;Integrated Security=True" SettingsObjectName="LMT_MVC.Properties.Settings" SettingsPropertyName="CS" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Leave_Management_Approval_Matrix" Member="Leave_Management_Approval_Matrixes">
+    <Type Name="Leave_Management_Approval_Matrix">
+      <Column Name="pk_approval_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fk_requestor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fk_approver_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Innovation_Management_User_Leave_Management_Approval_Matrix" Member="Innovation_Management_User" ThisKey="fk_requestor_id" OtherKey="pk_user_id" Type="Innovation_Management_User" IsForeignKey="true" />
+      <Association Name="Innovation_Management_User_Leave_Management_Approval_Matrix1" Member="Innovation_Management_User1" ThisKey="fk_approver_id" OtherKey="pk_user_id" Type="Innovation_Management_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Leave_Management_Leave_Type" Member="Leave_Management_Leave_Types">
+    <Type Name="Leave_Management_Leave_Type">
+      <Column Name="pk_leave_type_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="leave_type" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Leave_Management_Leave_Type_Leave_Management_Leave_Allowance" Member="Leave_Management_Leave_Allowances" ThisKey="pk_leave_type_id" OtherKey="fk_leave_type_id" Type="Leave_Management_Leave_Allowance" />
+      <Association Name="Leave_Management_Leave_Type_Leave_Management_Leave_Taken" Member="Leave_Management_Leave_Takens" ThisKey="pk_leave_type_id" OtherKey="fk_leave_type" Type="Leave_Management_Leave_Taken" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Leave_Management_Leave_Allowance" Member="Leave_Management_Leave_Allowances">
+    <Type Name="Leave_Management_Leave_Allowance">
+      <Column Name="pk_leave_allowance_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fk_user_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fk_leave_type_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="allowance_year" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="allowance_entitlement" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="allowance_taken" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Leave_Management_Leave_Type_Leave_Management_Leave_Allowance" Member="Leave_Management_Leave_Type" ThisKey="fk_leave_type_id" OtherKey="pk_leave_type_id" Type="Leave_Management_Leave_Type" IsForeignKey="true" />
+      <Association Name="Innovation_Management_User_Leave_Management_Leave_Allowance" Member="Innovation_Management_User" ThisKey="fk_user_id" OtherKey="pk_user_id" Type="Innovation_Management_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Leave_Management_Leave_Taken" Member="Leave_Management_Leave_Takens">
+    <Type Name="Leave_Management_Leave_Taken">
+      <Column Name="pk_leave_taken_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fk_user_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fk_leave_type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="leave_days" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="is_halfday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="is_afternoon" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="leave_status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fk_approved_user_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Leave_Management_Leave_Type_Leave_Management_Leave_Taken" Member="Leave_Management_Leave_Type" ThisKey="fk_leave_type" OtherKey="pk_leave_type_id" Type="Leave_Management_Leave_Type" IsForeignKey="true" />
+      <Association Name="Innovation_Management_User_Leave_Management_Leave_Taken" Member="Innovation_Management_User" ThisKey="fk_user_id" OtherKey="pk_user_id" Type="Innovation_Management_User" IsForeignKey="true" />
+      <Association Name="Innovation_Management_User_Leave_Management_Leave_Taken1" Member="Innovation_Management_User1" ThisKey="fk_approved_user_id" OtherKey="pk_user_id" Type="Innovation_Management_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Innovation_Management_User" Member="Innovation_Management_Users">
+    <Type Name="Innovation_Management_User">
+      <Column Name="pk_user_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="user_firstname" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="user_lastname" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="user_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="user_email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="user_password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="user_area" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="fk_assigned_country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="user_picture" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="user_isadmin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="user_isdeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="special_permission_1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Innovation_Management_User_Leave_Management_Approval_Matrix" Member="Leave_Management_Approval_Matrixes" ThisKey="pk_user_id" OtherKey="fk_requestor_id" Type="Leave_Management_Approval_Matrix" />
+      <Association Name="Innovation_Management_User_Leave_Management_Approval_Matrix1" Member="Leave_Management_Approval_Matrixes1" ThisKey="pk_user_id" OtherKey="fk_approver_id" Type="Leave_Management_Approval_Matrix" />
+      <Association Name="Innovation_Management_User_Leave_Management_Leave_Allowance" Member="Leave_Management_Leave_Allowances" ThisKey="pk_user_id" OtherKey="fk_user_id" Type="Leave_Management_Leave_Allowance" />
+      <Association Name="Innovation_Management_User_Leave_Management_Leave_Taken" Member="Leave_Management_Leave_Takens" ThisKey="pk_user_id" OtherKey="fk_user_id" Type="Leave_Management_Leave_Taken" />
+      <Association Name="Innovation_Management_User_Leave_Management_Leave_Taken1" Member="Leave_Management_Leave_Takens1" ThisKey="pk_user_id" OtherKey="fk_approved_user_id" Type="Leave_Management_Leave_Taken" />
+    </Type>
+  </Table>
+</Database>
